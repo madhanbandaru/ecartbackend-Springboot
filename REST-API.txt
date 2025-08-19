@@ -1,0 +1,78 @@
+#------------------------------------------------#
+#----------------USER-APIS-----------------------#
+#------------------------------------------------#
+POST   /api/user/add                 → Register new user
+POST   /api/user/login               → Login (save user in cookies)
+GET    /api/user/allusers            → Get all users
+GET    /api/user/{id}                → Get user by ID
+PUT    /api/user/update              → Update user
+DELETE /api/user/delete              → Delete user
+
+#------------------------------------------------#
+#----------------PRODUCT-APIS--------------------#
+#------------------------------------------------#
+
+GET    /api/product/findall              → Get all products
+GET    /api/product/{id}                 → Get product by ID (basic details)
+GET    /api/product/detailed/{id}        → Get product full details (category, price, images)
+GET    /api/product/category/{category}  → Get products by category
+POST   /api/product/add                  → Add new product
+PUT    /api/product/update               → Update product
+DELETE /api/product/delete               → Delete product
+
+
+#------------------------------------------------#
+#---------------CATEGORY-APIS--------------------#
+#------------------------------------------------#
+
+POST   /api/category/add             → Add new category
+PUT    /api/category/update          → Update category
+DELETE /api/category/delete?name= "category_name" → Delete category by name
+
+
+#------------------------------------------------#
+#------------------IMAGE-APIS--------------------#
+#------------------------------------------------#
+
+PUT    /api/image/update                 → Update image by ID
+DELETE /api/image/delete/{url}           → Delete image by URL
+PUT    /api/image/updateimg/{oldurl}&{newUrl} → Update image link
+
+
+#------------------------------------------------#
+#-------------------CART-APIS--------------------#
+#------------------------------------------------#
+
+
+POST   /api/cart/add?cartId=&productId=&quantity=   → Add item to cart
+PUT    /api/cart/update-quantity/{cartItemId}?quantity= → Update cart item quantity
+DELETE /api/cart/remove/{cartItemId}               → Remove item from cart
+GET    /api/cart/{cartId}/items                    → Get all items in cart
+GET    /api/cart/user/{userId}                     → Get cart by user
+DELETE /api/cart/clear/{userId}                    → Clear cart for a user
+
+
+#------------------------------------------------#
+#-------------------ORDER-APIS-------------------#
+#------------------------------------------------#
+
+POST   /api/orders/place/{userId}        → Place order for user (from cart)
+GET    /api/orders/{orderId}             → Get order by ID
+GET    /api/orders/user/{userId}         → Get orders of a user
+GET    /api/orders/all                   → Get all orders
+PUT    /api/orders/status/{orderId}?status= → Update order status (e.g., SHIPPED, DELIVERED)
+PUT    /api/orders/cancel/{orderId}      → Cancel order
+GET    /api/orders/status/{status}       → Get orders by status
+
+
+#------------------------------------------------#
+#----------------ORDERITEM-APIS------------------#
+#------------------------------------------------#
+
+
+
+POST   /api/order-items/add?orderId=&productId=&quantity=&price= → Add order item
+GET    /api/order-items/order/{orderId}                        → Get items of an order
+PUT    /api/order-items/update-quantity/{orderItemId}?quantity= → Update item quantity in order
+DELETE /api/order-items/remove/{orderItemId}                   → Remove item from order
+
